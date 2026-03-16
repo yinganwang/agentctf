@@ -38,7 +38,6 @@ class SecurityGreenAgentExecutor(AgentExecutor):
     def __init__(self):
         self.task_loader = TaskLoader()
         self.evaluator = HybridEvaluator("litellm_proxy/openai/gpt-4o")
-        self.evaluator = HybridEvaluator(eval_model)
 
     async def execute(self, context: RequestContext, event_queue: EventQueue) -> None:
         """Execute security assessment"""
