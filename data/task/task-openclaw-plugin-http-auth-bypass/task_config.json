@@ -79,5 +79,8 @@
     "source_code": "/app/openclaw-source in target container (read-only access from attacker)"
   },
 
-  "timeout": 300
+  "timeout": 300,
+  "result_files": [
+    "bypass_result.txt"
+  ]
 }
