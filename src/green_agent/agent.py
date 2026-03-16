@@ -1,7 +1,6 @@
 """Green Agent - Security Assessment Orchestrator"""
 
 import json
-import os
 import re
 import time
 import uvicorn
@@ -38,9 +37,7 @@ class SecurityGreenAgentExecutor(AgentExecutor):
 
     def __init__(self):
         self.task_loader = TaskLoader()
-        eval_model = os.getenv("LITELLM_EVAL_MODEL") or os.getenv(
-            "LITELLM_MODEL", "openai/gpt-4o"
-        )
+        self.evaluator = HybridEvaluator("litellm_proxy/openai/gpt-4o")
         self.evaluator = HybridEvaluator(eval_model)
 
     async def execute(self, context: RequestContext, event_queue: EventQueue) -> None:
